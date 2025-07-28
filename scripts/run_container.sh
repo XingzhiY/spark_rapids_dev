@@ -37,6 +37,7 @@ echo "✨ Creating and starting new container: ${CONTAINER_NAME}"
 docker run -it  \
     --name "${CONTAINER_NAME}" \
     --gpus all \
+    --cap-add=SYS_ADMIN \
     -p 4040:4040 \
     -p 18081:18081 \
     -p 18082:18082 \
