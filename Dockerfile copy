@@ -23,11 +23,10 @@ RUN apt-get update && apt-get install -y openjdk-11-jdk maven && rm -rf /var/lib
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 # Install Miniconda for Python environment management
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py39_23.3.1-0-Linux-x86_64.sh -O /tmp/miniconda.sh && \
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
     bash /tmp/miniconda.sh -b -p /opt/conda && \
     rm /tmp/miniconda.sh && \
-    /opt/conda/bin/conda clean -tip && \
-    /opt/conda/bin/python --version
+    /opt/conda/bin/conda clean -tip
 
 # Add conda to the PATH for all users
 ENV PATH /opt/conda/bin:$PATH
