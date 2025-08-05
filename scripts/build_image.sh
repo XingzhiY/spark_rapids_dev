@@ -2,7 +2,7 @@
 set -e # Exit immediately if a command exits with a non-zero status.
 
 # Define image name and tag
-IMAGE_NAME="spark-rapids-dev"
+IMAGE_NAME="xy-spark-rapids-dev"
 IMAGE_TAG="1.0.0"
 
 # Get the directory of the script to robustly find the Dockerfile

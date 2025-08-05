@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE_NAME="spark-rapids-dev:1.0.0"
+IMAGE_NAME="xy-spark-rapids-dev:1.0.0"
 CONTAINER_NAME="xy_rapids_dev_env"
 # 定义项目目录，并挂载到容器内的相同路径
 PROJECT_DIR=$(realpath ~/spark_rapids_dev)
