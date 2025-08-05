@@ -3,3 +3,4 @@ spark-events/
 nsys-reports/
 tpch/
 output*
+*.parquet
