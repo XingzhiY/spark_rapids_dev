@@ -26,7 +26,7 @@ def generate_and_save_data():
     print(f"正在生成数据并保存到: {output_path}")
 
     # 生成确定性的随机数据
-    num_rows = 300000
+    num_rows = 10000000
     # 使用固定的种子以确保可复现
     np.random.seed(42) 
     data = [(int(i), float(np.random.random())) for i in range(num_rows)]

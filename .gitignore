@@ -4,3 +4,4 @@ nsys-reports/
 tpch/
 output*
 *.parquet
+*.ncu-rep
