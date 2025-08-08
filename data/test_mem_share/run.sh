@@ -1,1 +1,1 @@
-spark-submit --master local[*] --driver-memory 4g local_data_generator.py --num-rows 50000000
+spark-submit --master local[*] --driver-memory 16g local_data_generator.py --num-rows 500000000

@@ -5,3 +5,4 @@ tpch/
 output*
 *.parquet
 *.ncu-rep
+*.nsys-rep
