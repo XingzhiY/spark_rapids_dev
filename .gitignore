@@ -6,3 +6,4 @@ output*
 *.parquet
 *.ncu-rep
 *.nsys-rep
+*.parquet_temp/
