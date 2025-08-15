@@ -1,0 +1,43 @@
+数据将从 'local_profile_data.parquet' 加载。
+count完成。
+
+===== 第一个任务：执行聚合操作 =====
+聚合操作的物理执行计划：
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- HashAggregate(keys=[group_key#3], functions=[avg(value1#1)])
+   +- Exchange hashpartitioning(group_key#3, 200), ENSURE_REQUIREMENTS, [plan_id=145]
+      +- HashAggregate(keys=[group_key#3], functions=[partial_avg(value1#1)])
+         +- InMemoryTableScan [value1#1, group_key#3]
+               +- InMemoryRelation [id#0L, value1#1, value2#2, group_key#3], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     +- GpuColumnarToRow false
+                        +- GpuFileGpuScan parquet [id#0L,value1#1,value2#2,group_key#3] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex[file:/root/spark_rapids_dev/data/parse-tree/local_profile_data.parquet], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<id:bigint,value1:double,value2:double,group_key:int>
+
+
++---------+------------------+
+|group_key|       avg(value1)|
++---------+------------------+
+|      453|48.481909920289525|
+|      416|49.100306475575884|
+|      394| 50.74881888252576|
+|      496|44.127298846894675|
+|      424| 49.12150738295593|
+|       35| 50.20082242097619|
+|      472|49.149091689288824|
+|       18| 49.99761356158093|
+|       95|49.696907385318525|
+|      117| 49.72321891720127|
+|      439|50.399707321664756|
+|       30|49.788680063372276|
+|      300| 50.18202498129191|
+|      182| 50.01067905198097|
+|      380|50.219564395968845|
+|      232| 49.90695318568089|
+|      174| 49.89640925025745|
+|      454|  51.5194187563779|
+|      395| 48.41872453456298|
+|      250| 49.98178182482336|
++---------+------------------+
+only showing top 20 rows
+
+聚合操作完成。

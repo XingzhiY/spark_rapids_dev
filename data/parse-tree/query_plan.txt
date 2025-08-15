@@ -1,0 +1,56 @@
+数据将从 'local_profile_data.parquet' 加载。
+count完成。
+
+===== 第一个任务：执行聚合操作 =====
+聚合操作的物理执行计划：
+== Parsed Logical Plan ==
+'Aggregate ['group_key], ['group_key, unresolvedalias('avg(value1#1), None)]
++- Relation [id#0L,value1#1,value2#2,group_key#3] parquet
+
+== Analyzed Logical Plan ==
+group_key: int, avg(value1): double
+Aggregate [group_key#3], [group_key#3, avg(value1#1) AS avg(value1)#208]
++- Relation [id#0L,value1#1,value2#2,group_key#3] parquet
+
+== Optimized Logical Plan ==
+Aggregate [group_key#3], [group_key#3, avg(value1#1) AS avg(value1)#208]
++- Project [value1#1, group_key#3]
+   +- InMemoryRelation [id#0L, value1#1, value2#2, group_key#3], StorageLevel(disk, memory, deserialized, 1 replicas)
+         +- GpuFileGpuScan parquet [id#0L,value1#1,value2#2,group_key#3] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex[file:/root/spark_rapids_dev/data/parse-tree/local_profile_data.parquet], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<id:bigint,value1:double,value2:double,group_key:int>
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- HashAggregate(keys=[group_key#3], functions=[avg(value1#1)], output=[group_key#3, avg(value1)#208])
+   +- Exchange hashpartitioning(group_key#3, 200), ENSURE_REQUIREMENTS, [plan_id=148]
+      +- HashAggregate(keys=[group_key#3], functions=[partial_avg(value1#1)], output=[group_key#3, sum#274, count#275L])
+         +- InMemoryTableScan [value1#1, group_key#3]
+               +- InMemoryRelation [id#0L, value1#1, value2#2, group_key#3], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     +- GpuFileGpuScan parquet [id#0L,value1#1,value2#2,group_key#3] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex[file:/root/spark_rapids_dev/data/parse-tree/local_profile_data.parquet], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<id:bigint,value1:double,value2:double,group_key:int>
+
++---------+------------------+
+|group_key|       avg(value1)|
++---------+------------------+
+|      453|48.481909920289525|
+|      416|49.100306475575884|
+|      394|50.748818882525775|
+|      496| 44.12729884689467|
+|      424| 49.12150738295593|
+|       35| 50.20082242097619|
+|      472|49.149091689288824|
+|       18| 49.99761356158092|
+|       95|49.696907385318525|
+|      117| 49.72321891720128|
+|      439| 50.39970732166475|
+|       30| 49.78868006337229|
+|      300|50.182024981291896|
+|      182| 50.01067905198097|
+|      380| 50.21956439596886|
+|      232| 49.90695318568088|
+|      174| 49.89640925025746|
+|      454|51.519418756377895|
+|      395| 48.41872453456299|
+|      250|49.981781824823365|
++---------+------------------+
+only showing top 20 rows
+
+聚合操作完成。

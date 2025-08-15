@@ -1,0 +1,30 @@
+数据将从 'local_profile_data.parquet' 加载。
+count完成。
+
+===== 第一个任务：执行聚合操作 =====
+聚合操作的物理执行计划：
+== Parsed Logical Plan ==
+'Aggregate ['group_key], ['group_key, unresolvedalias('avg(value1#1), None)]
++- Relation [id#0L,value1#1,value2#2,group_key#3] parquet
+
+== Analyzed Logical Plan ==
+group_key: int, avg(value1): double
+Aggregate [group_key#3], [group_key#3, avg(value1#1) AS avg(value1)#208]
++- Relation [id#0L,value1#1,value2#2,group_key#3] parquet
+
+== Optimized Logical Plan ==
+Aggregate [group_key#3], [group_key#3, avg(value1#1) AS avg(value1)#208]
++- Project [value1#1, group_key#3]
+   +- InMemoryRelation [id#0L, value1#1, value2#2, group_key#3], StorageLevel(disk, memory, deserialized, 1 replicas)
+         +- GpuFileGpuScan parquet [id#0L,value1#1,value2#2,group_key#3] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex[file:/root/spark_rapids_dev/data/parse-tree/local_profile_data.parquet], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<id:bigint,value1:double,value2:double,group_key:int>
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- HashAggregate(keys=[group_key#3], functions=[avg(value1#1)], output=[group_key#3, avg(value1)#208])
+   +- Exchange hashpartitioning(group_key#3, 200), ENSURE_REQUIREMENTS, [plan_id=148]
+      +- HashAggregate(keys=[group_key#3], functions=[partial_avg(value1#1)], output=[group_key#3, sum#274, count#275L])
+         +- InMemoryTableScan [value1#1, group_key#3]
+               +- InMemoryRelation [id#0L, value1#1, value2#2, group_key#3], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     +- GpuFileGpuScan parquet [id#0L,value1#1,value2#2,group_key#3] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex[file:/root/spark_rapids_dev/data/parse-tree/local_profile_data.parquet], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<id:bigint,value1:double,value2:double,group_key:int>
+
+聚合操作完成。

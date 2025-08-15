@@ -1,0 +1,144 @@
+25/08/15 12:29:03 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+25/08/15 12:29:04 WARN RapidsPluginUtils: RAPIDS Accelerator 25.06.0 using cudf 25.06.0, private revision 5f8d86f27df845b5dbacdf251ea28e0f61a118f1
+25/08/15 12:29:04 WARN RapidsPluginUtils: RAPIDS Accelerator is enabled, to disable GPU support set `spark.rapids.sql.enabled` to false.
+25/08/15 12:29:04 WARN RapidsPluginUtils: spark.rapids.sql.explain is set to `ALL`. Set it to 'NONE' to suppress the diagnostics logging about the query placement on the GPU.
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                25/08/15 12:29:18 WARN GpuOverrides: 
+*Exec <FileSourceScanExec> will run on GPU
+
+25/08/15 12:29:19 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> count(1) will run on GPU
+    *Expression <Count> count(1) will run on GPU
+  *Expression <Alias> count(1)#32L AS count#33L will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <SinglePartition$> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_count(1) will run on GPU
+        *Expression <Count> count(1) will run on GPU
+      *Exec <InMemoryTableScanExec> will run on GPU
+
+25/08/15 12:29:19 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> count(1) will run on GPU
+    *Expression <Count> count(1) will run on GPU
+  *Expression <Alias> count(1)#32L AS count#33L will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <SinglePartition$> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_count(1) will run on GPU
+        *Expression <Count> count(1) will run on GPU
+      *Exec <InMemoryTableScanExec> will run on GPU
+
+25/08/15 12:29:19 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> count(1) will run on GPU
+    *Expression <Count> count(1) will run on GPU
+  *Expression <Alias> count(1)#32L AS count#33L will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <SinglePartition$> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_count(1) will run on GPU
+        *Expression <Count> count(1) will run on GPU
+      *Exec <InMemoryTableScanExec> will run on GPU
+
+[Stage 1:>                                                        (0 + 64) / 64]25/08/15 12:29:20 WARN MultiFileReaderThreadPool: Configuring the file reader thread pool with a max of 64 threads instead of spark.rapids.sql.multiThreadedRead.numThreads = 20
+[Stage 1:=>                                                       (2 + 62) / 64][Stage 1:====>                                                    (5 + 59) / 64][Stage 1:=====>                                                   (6 + 58) / 64][Stage 1:==========>                                             (12 + 52) / 64][Stage 1:================>                                       (19 + 45) / 64][Stage 1:===========================>                            (31 + 33) / 64][Stage 1:======================================>                 (44 + 20) / 64]25/08/15 12:29:23 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> count(1) will run on GPU
+    *Expression <Count> count(1) will run on GPU
+  *Expression <Alias> count(1)#32L AS count#33L will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <SinglePartition$> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_count(1) will run on GPU
+        *Expression <Count> count(1) will run on GPU
+
+25/08/15 12:29:23 WARN GpuOverrides: 
+*Exec <ShuffleExchangeExec> will run on GPU
+  *Partitioning <SinglePartition$> will run on GPU
+  *Exec <HashAggregateExec> will run on GPU
+    *Expression <AggregateExpression> partial_count(1) will run on GPU
+      *Expression <Count> count(1) will run on GPU
+
+[Stage 2:===>                                                     (4 + 60) / 64][Stage 2:=========>                                              (11 + 53) / 64][Stage 2:===========>                                            (13 + 51) / 64][Stage 2:============>                                           (14 + 50) / 64][Stage 2:============================>                           (33 + 31) / 64]25/08/15 12:29:24 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> count(1) will run on GPU
+    *Expression <Count> count(1) will run on GPU
+  *Expression <Alias> count(1)#32L AS count#33L will run on GPU
+
+25/08/15 12:29:24 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> count(1) will run on GPU
+    *Expression <Count> count(1) will run on GPU
+  *Expression <Alias> count(1)#32L AS count#33L will run on GPU
+
+[Stage 4:>                                                          (0 + 1) / 1]                                                                                25/08/15 12:29:25 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> avg(value1#1) will run on GPU
+    *Expression <Average> avg(value1#1) will run on GPU
+  *Expression <Alias> avg(value1#1)#207 AS avg(value1)#208 will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <HashPartitioning> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_avg(value1#1) will run on GPU
+        *Expression <Average> avg(value1#1) will run on GPU
+      *Exec <InMemoryTableScanExec> will run on GPU
+
+25/08/15 12:29:25 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> avg(value1#1) will run on GPU
+    *Expression <Average> avg(value1#1) will run on GPU
+  *Expression <Alias> avg(value1#1)#207 AS avg(value1)#208 will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <HashPartitioning> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_avg(value1#1) will run on GPU
+        *Expression <Average> avg(value1#1) will run on GPU
+      *Exec <InMemoryTableScanExec> will run on GPU
+
+25/08/15 12:29:25 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> avg(value1#1) will run on GPU
+    *Expression <Average> avg(value1#1) will run on GPU
+  *Expression <Alias> avg(value1#1)#207 AS avg(value1)#208 will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <HashPartitioning> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_avg(value1#1) will run on GPU
+        *Expression <Average> avg(value1#1) will run on GPU
+      *Exec <InMemoryTableScanExec> will run on GPU
+
+25/08/15 12:29:25 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> avg(value1#1) will run on GPU
+    *Expression <Average> avg(value1#1) will run on GPU
+  *Expression <Alias> avg(value1#1)#207 AS avg(value1)#208 will run on GPU
+  *Exec <ShuffleExchangeExec> will run on GPU
+    *Partitioning <HashPartitioning> will run on GPU
+    *Exec <HashAggregateExec> will run on GPU
+      *Expression <AggregateExpression> partial_avg(value1#1) will run on GPU
+        *Expression <Average> avg(value1#1) will run on GPU
+
+25/08/15 12:29:25 WARN GpuOverrides: 
+*Exec <ShuffleExchangeExec> will run on GPU
+  *Partitioning <HashPartitioning> will run on GPU
+  *Exec <HashAggregateExec> will run on GPU
+    *Expression <AggregateExpression> partial_avg(value1#1) will run on GPU
+      *Expression <Average> avg(value1#1) will run on GPU
+
+[Stage 5:====>                                                    (5 + 59) / 64][Stage 5:========>                                                (9 + 55) / 64][Stage 5:=========>                                              (11 + 53) / 64][Stage 5:==========>                                             (12 + 52) / 64][Stage 5:==============>                                         (16 + 48) / 64][Stage 5:==================>                                     (21 + 43) / 64][Stage 5:===================>                                    (22 + 42) / 64][Stage 5:=====================>                                  (25 + 39) / 64]25/08/15 12:29:28 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> avg(value1#1) will run on GPU
+    *Expression <Average> avg(value1#1) will run on GPU
+  *Expression <Alias> avg(value1#1)#207 AS avg(value1)#208 will run on GPU
+
+25/08/15 12:29:28 WARN GpuOverrides: 
+*Exec <HashAggregateExec> will run on GPU
+  *Expression <AggregateExpression> avg(value1#1) will run on GPU
+    *Expression <Average> avg(value1#1) will run on GPU
+  *Expression <Alias> avg(value1#1)#207 AS avg(value1)#208 will run on GPU
+  *Exec <AQEShuffleReadExec> will run on GPU
+
+[Stage 7:>                                                          (0 + 1) / 1]                                                                                
