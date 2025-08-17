@@ -1,0 +1,426 @@
+[ {
+  "class" : "org.apache.spark.sql.execution.aggregate.HashAggregateExec",
+  "num-children" : 1,
+  "requiredChildDistributionExpressions" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "group_key",
+    "dataType" : "integer",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 3,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "isStreaming" : false,
+  "groupingExpressions" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "group_key",
+    "dataType" : "integer",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 3,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "aggregateExpressions" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.aggregate.AggregateExpression",
+    "num-children" : 1,
+    "aggregateFunction" : 0,
+    "mode" : {
+      "object" : "org.apache.spark.sql.catalyst.expressions.aggregate.Final$"
+    },
+    "isDistinct" : false,
+    "resultId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 207,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    }
+  }, {
+    "class" : "org.apache.spark.sql.catalyst.expressions.aggregate.Average",
+    "num-children" : 1,
+    "child" : 0,
+    "evalMode" : null
+  }, {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "value1",
+    "dataType" : "double",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 1,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "aggregateAttributes" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "avg(value1#1)",
+    "dataType" : "double",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 207,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "initialInputBufferOffset" : 1,
+  "resultExpressions" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "group_key",
+    "dataType" : "integer",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 3,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ], [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.Alias",
+    "num-children" : 1,
+    "child" : 0,
+    "name" : "avg(value1)",
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 208,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ],
+    "nonInheritableMetadataKeys" : [ ]
+  }, {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "avg(value1#1)",
+    "dataType" : "double",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 207,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "child" : 0
+}, {
+  "class" : "org.apache.spark.sql.execution.aggregate.HashAggregateExec",
+  "num-children" : 1,
+  "isStreaming" : false,
+  "groupingExpressions" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "group_key",
+    "dataType" : "integer",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 3,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "aggregateExpressions" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.aggregate.AggregateExpression",
+    "num-children" : 1,
+    "aggregateFunction" : 0,
+    "mode" : {
+      "object" : "org.apache.spark.sql.catalyst.expressions.aggregate.Partial$"
+    },
+    "isDistinct" : false,
+    "resultId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 207,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    }
+  }, {
+    "class" : "org.apache.spark.sql.catalyst.expressions.aggregate.Average",
+    "num-children" : 1,
+    "child" : 0,
+    "evalMode" : null
+  }, {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "value1",
+    "dataType" : "double",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 1,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "aggregateAttributes" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "sum",
+    "dataType" : "double",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 272,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ], [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "count",
+    "dataType" : "long",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 273,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "initialInputBufferOffset" : 0,
+  "resultExpressions" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "group_key",
+    "dataType" : "integer",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 3,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ], [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "sum",
+    "dataType" : "double",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 274,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ], [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "count",
+    "dataType" : "long",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 275,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "child" : 0
+}, {
+  "class" : "org.apache.spark.sql.execution.columnar.InMemoryTableScanExec",
+  "num-children" : 0,
+  "attributes" : [ [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "value1",
+    "dataType" : "double",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 1,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ], [ {
+    "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+    "num-children" : 0,
+    "name" : "group_key",
+    "dataType" : "integer",
+    "nullable" : true,
+    "metadata" : { },
+    "exprId" : {
+      "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+      "id" : 3,
+      "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+    },
+    "qualifier" : [ ]
+  } ] ],
+  "predicates" : [ ],
+  "relation" : [ {
+    "class" : "org.apache.spark.sql.execution.columnar.InMemoryRelation",
+    "num-children" : 0,
+    "output" : [ [ {
+      "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+      "num-children" : 0,
+      "name" : "id",
+      "dataType" : "long",
+      "nullable" : true,
+      "metadata" : { },
+      "exprId" : {
+        "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+        "id" : 0,
+        "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+      },
+      "qualifier" : [ ]
+    } ], [ {
+      "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+      "num-children" : 0,
+      "name" : "value1",
+      "dataType" : "double",
+      "nullable" : true,
+      "metadata" : { },
+      "exprId" : {
+        "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+        "id" : 1,
+        "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+      },
+      "qualifier" : [ ]
+    } ], [ {
+      "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+      "num-children" : 0,
+      "name" : "value2",
+      "dataType" : "double",
+      "nullable" : true,
+      "metadata" : { },
+      "exprId" : {
+        "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+        "id" : 2,
+        "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+      },
+      "qualifier" : [ ]
+    } ], [ {
+      "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+      "num-children" : 0,
+      "name" : "group_key",
+      "dataType" : "integer",
+      "nullable" : true,
+      "metadata" : { },
+      "exprId" : {
+        "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+        "id" : 3,
+        "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+      },
+      "qualifier" : [ ]
+    } ] ],
+    "cacheBuilder" : {
+      "product-class" : "org.apache.spark.sql.execution.columnar.CachedRDDBuilder",
+      "serializer" : null,
+      "storageLevel" : {
+        "useDisk" : true,
+        "useMemory" : true,
+        "useOffHeap" : false,
+        "deserialized" : true,
+        "replication" : 1
+      },
+      "cachedPlan" : [ {
+        "class" : "org.apache.spark.sql.rapids.GpuFileSourceScanExec",
+        "num-children" : 0,
+        "relation" : null,
+        "originalOutput" : [ [ {
+          "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+          "num-children" : 0,
+          "name" : "id",
+          "dataType" : "long",
+          "nullable" : true,
+          "metadata" : { },
+          "exprId" : {
+            "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+            "id" : 0,
+            "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+          },
+          "qualifier" : [ ]
+        } ], [ {
+          "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+          "num-children" : 0,
+          "name" : "value1",
+          "dataType" : "double",
+          "nullable" : true,
+          "metadata" : { },
+          "exprId" : {
+            "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+            "id" : 1,
+            "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+          },
+          "qualifier" : [ ]
+        } ], [ {
+          "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+          "num-children" : 0,
+          "name" : "value2",
+          "dataType" : "double",
+          "nullable" : true,
+          "metadata" : { },
+          "exprId" : {
+            "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+            "id" : 2,
+            "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+          },
+          "qualifier" : [ ]
+        } ], [ {
+          "class" : "org.apache.spark.sql.catalyst.expressions.AttributeReference",
+          "num-children" : 0,
+          "name" : "group_key",
+          "dataType" : "integer",
+          "nullable" : true,
+          "metadata" : { },
+          "exprId" : {
+            "product-class" : "org.apache.spark.sql.catalyst.expressions.ExprId",
+            "id" : 3,
+            "jvmId" : "e5bdb5f2-d39c-4dcf-9e22-43fd158115eb"
+          },
+          "qualifier" : [ ]
+        } ] ],
+        "requiredSchema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "id",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : { }
+          }, {
+            "name" : "value1",
+            "type" : "double",
+            "nullable" : true,
+            "metadata" : { }
+          }, {
+            "name" : "value2",
+            "type" : "double",
+            "nullable" : true,
+            "metadata" : { }
+          }, {
+            "name" : "group_key",
+            "type" : "integer",
+            "nullable" : true,
+            "metadata" : { }
+          } ]
+        },
+        "partitionFilters" : [ ],
+        "dataFilters" : [ ],
+        "disableBucketedScan" : false,
+        "queryUsesInputFile" : false,
+        "rapidsConf" : null
+      } ]
+    },
+    "outputOrdering" : [ ]
+  } ]
+} ]

@@ -1,5 +1,6 @@
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._ // 引入 Spark SQL 的函数，例如 avg
+import java.io._ // 引入 Java I/O 库用于文件写入
 
 object RapidsCacheAnalysisDemo {
 
@@ -43,15 +44,21 @@ object RapidsCacheAnalysisDemo {
     aggDf.explain(extended = true)
 
     // ==================== 关键实现部分 ====================
-    // 以编程方式访问计划树并打印其 JSON 格式
-    println("\n===== 物理执行计划 (JSON 格式) =====")
+    // 以编程方式访问计划树并将其 JSON 格式写入文件
+    println("\n正在将物理执行计划写入 JSON 文件...")
     val physicalPlan = aggDf.queryExecution.sparkPlan
-    println(physicalPlan.prettyJson) // 直接打印出 JSON 格式的计划树
+    val pwPhysical = new PrintWriter(new File("spark_physical_plan.json"))
+    pwPhysical.write(physicalPlan.prettyJson)
+    pwPhysical.close()
+    println("物理执行计划已成功写入 physical_plan.json")
 
     // 同样地，我们也可以访问并打印逻辑计划
-    println("\n===== 逻辑执行计划 (JSON 格式) =====")
+    println("\n正在将逻辑执行计划写入 JSON 文件...")
     val logicalPlan = aggDf.queryExecution.logical
-    println(logicalPlan.prettyJson)
+    val pwLogical = new PrintWriter(new File("spark_logical_plan.json"))
+    pwLogical.write(logicalPlan.prettyJson)
+    pwLogical.close()
+    println("逻辑执行计划已成功写入 logical_plan.json")
     // =====================================================
 
     // 触发聚合操作
