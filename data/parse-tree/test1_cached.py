@@ -22,31 +22,21 @@ def analyze_plan_with_cache_demo():
 
     with nvtx.annotate("2. Data Loading and Caching", color="green"):
         input_path = "local_profile_data.parquet"
-        # 步骤 1: 读取数据，并立即声明要缓存它。
-        # cache() 本身是一个懒执行的 transformation。
-        # df = spark.read.parquet(input_path)
+
         df = spark.read.parquet(input_path).cache()
-        # df = spark.read.parquet(input_path).persist(StorageLevel.MEMORY_ONLY)
         
         print(f"数据将从 '{input_path}' 加载。")
         
-        # 步骤 2: 执行一个 action (例如 count) 来触发实际的加载和缓存过程。
-        # 这一步执行完后，数据就已经在内存/GPU内存中了。
-        # caching.cache_and_wait(df)
         df.count()
         print("count完成。")
 
 
     with nvtx.annotate("3. First Usage: Aggregation", color="red"):
         print("\n===== 第一个任务：执行聚合操作 =====")
-        # 假设你的 Parquet 文件中有 'group_key' 和 'value1' 列
         agg_df = df.groupBy("group_key").agg({"value1": "avg"})
-        
-        # 关键步骤：打印执行计划进行分析
         print("聚合操作的物理执行计划：")
         agg_df.explain(extended = True)
-        
-        # 触发聚合操作
+
         agg_df.collect()
         print("聚合操作完成。")
 
